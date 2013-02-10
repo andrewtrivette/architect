@@ -1,0 +1,11 @@
+<?
+$file_list = new Ftp();
+if (ltrim($_SESSION['dir'], '/') != '') {
+	$file_list->change_dir(ltrim($_SESSION['dir'], '/'));
+}
+echo $file_list->file_list('files');
+//echo $_SESSION['info']['base_url'].'<br />';
+//echo $list->download('index.php').'<br />';
+//echo $list->upload('index.php').'<br />';
+//echo $list->new_file('index3.php').'<br />';
+?>

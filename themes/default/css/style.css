@@ -1,0 +1,171 @@
+/*Copyright 2013, Created by Andrew Trivette. All rights reserved.*/
+* {
+	margin:0px;
+	padding:0px;
+	outline:0;
+	border-collapse:collapse;
+	}
+html, body {
+	font-size:14px;
+	font-family:Arial, Tahoma, Helvetica, Sans-serif;
+	text-align:center;
+	line-height:1.4;
+	height:100%;
+	}
+a { text-decoration:none;}
+img { border:0;}
+h1 {
+	font-size:20px;
+	font-weight:bold;
+	font-style:italic;
+	margin:5px 0px;
+	}
+h2 {
+	font-size:18px;
+	margin:5px 0px;
+	}
+h3 {
+	margin:5px 0px;
+	}
+label {
+	font-weight:bold;
+	display:block;
+	}
+ul, ol, dd, blockquote{ margin:5px 20px; }
+fieldset { padding:5px; }
+dt { font-weight:bold; }
+p { margin:5px 0px; }
+th {
+	text-align:center;
+	padding:5px;
+	}
+header, nav, article, section, footer {
+display:block;	
+}
+.clearfix:after {
+  display:table;
+  content: " ";
+  clear: both;
+}
+
+.ie7 .clearfix {
+  zoom:1;
+  display: block;
+}
+/* ------- HTML Elements ---------- */
+html, body {
+	color:#333333;
+	}
+a:link, a:visited {
+	color:#660000;
+	}
+a:hover, a:active {
+	color:#990000;
+	}
+th {
+	background-color:#333333;
+	color:#FFFFFF;
+	}
+td { background-color:#FFFFFF; }
+
+
+/* -------- Content Styles -------- */
+.product_thumb {
+	border-color:#999999;
+	}
+.product_thumb a span {
+	color:#990000;
+	}
+.container {
+background-color:#f1f1f1;
+}
+
+/* ------- Structural Id's --------- */
+.main_wrapper {
+	max-width:960px;
+	margin:0px auto;
+	text-align:center;
+	background-color:#333333;
+	}
+.banner {
+	padding:15px;
+	background-color:#666666;
+	}
+.banner a.home {
+	display:block;
+	}
+.banner strong {
+display:none;
+}
+.menu {
+	text-align:left;
+	margin:5px 0px;
+	background-color:#CCCCCC;
+	}
+.menu li {
+	list-style-type:none;
+	font-size:17px;
+	line-height:2;
+	margin:1px 5px;
+	float:left;
+	}
+.menu a, 
+.menu span {
+	display:block;
+	font-weight:bold;
+	color:#fff;
+	}
+.menu ul {
+	margin:0px 5px;
+	}
+
+.copy {
+	text-align:left;
+	margin:2%;
+	padding:0px;
+	min-height:400px;
+	clear:both;
+	background-color:#FFFFFF;
+	}
+.footer {
+	clear:both;
+	font-size:12px;
+	}
+.footer li {
+	display:inline;
+	padding:0px 5px;
+	margin:0px 5px;
+	}
+
+/* -------- Content Styles -------- */
+.product_thumb {
+	float:left;
+	width:100px;
+	height:170px;
+	padding:5px;
+	text-align:center;
+	border:1px solid;
+	margin:3px;
+	font-size:12px;
+	}
+.product_thumb a span {
+	font-weight:bold;
+	line-height:18px;
+	}
+.active {
+	font-weight:bold;
+	letter-spacing:-1px;
+	}
+.left {
+float:left;
+}
+.right {
+float:right;
+}
+.column, .container {
+width:320px;
+margin:5px;
+}
+.container > * {
+padding:5px 10px;
+}
