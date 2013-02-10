@@ -1,5 +1,5 @@
 <?php session_start();
-if ($_REQUEST['logout']) {
+if (isset($_REQUEST['logout'])) {
 	session_destroy();
 	session_start();
 }
@@ -7,6 +7,7 @@ if ($_REQUEST['logout']) {
 
 include 'configure.inc';
 $type = (isset($_REQUEST['type'])) ? $_REQUEST['type']:'pages';
+$page = (isset($_REQUEST['page'])) ? $_REQUEST['page']:'home';
 $page_title = ucwords( str_replace( '_', ' ', basename( $page ) ) );
 arch_add_info('page_title', $page_title );
 include 'themes/'.$settings['theme'].'/features.php';

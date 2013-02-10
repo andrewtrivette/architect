@@ -9,7 +9,7 @@ function arch_add_info($name, $value) {
 
 function arch_execute($hook) {
 	global $hooks;
-	$active = $hooks[$hook];
+	$active = (isset($hooks[$hook])) ? $hooks[$hook]:'';
 	if ( !empty($active) ) {
 		foreach ($active as $callback => $args) {
 			call_user_func_array($callback, $args);	
@@ -17,7 +17,7 @@ function arch_execute($hook) {
 	}
 }
 
-function arch_register($hook, $callback, $args = '') {
+function arch_register($hook, $callback, $args = array()) {
 	global $hooks;
 	$hooks[$hook][$callback] = $args;
 }

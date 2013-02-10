@@ -4,7 +4,7 @@ class Menu {
 	
 	function __construct($args) {
 		extract( $args );
-		$page = $_REQUEST['page'];
+		$page = (isset($_REQUEST['page'])) ? $_REQUEST['page']:'home';
 		// Menu('content', '.menu', 'html', 'page/', '1');
 		$css = substr($attribute, 0, 1);
 		if ($css == '#') {
