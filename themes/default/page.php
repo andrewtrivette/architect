@@ -12,9 +12,9 @@
     <div class="main_wrapper">
         <header class="banner">
             <?php arch_template('header'); ?>
-            <nav class="menu clearfix" role="navigation"><?php 
-            arch_module('Menu', array( 'folder' => 'content', 'attribute' => '', 'filetype' => 'html', 'url' => 'page/', 'depth' => '1' ) ); 
-            ?></nav>
+            <nav class="menu clearfix" role="navigation">
+				<?php arch_module('Menu', array( 'type' => $content->type, 'id' => $content->id ) ); ?>
+            </nav>
         </header><!-- .banner -->
         <article class="copy">
             <?php arch_template('content'); ?>

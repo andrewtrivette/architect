@@ -4,9 +4,12 @@ class Menu {
 	
 	function __construct($args) {
 		extract( $args );
-		$page = (isset($_REQUEST['page'])) ? $_REQUEST['page']:'home';
+		$page = (isset($id)) ? $id:'home';
 		// Menu('content', '.menu', 'html', 'page/', '1');
-		$css = substr($attribute, 0, 1);
+		$css = ( isset( $attribute ) ) ? substr($attribute, 0, 1):'';
+		$folder = ( isset( $folder ) ) ? $folder:'content';
+		$filetype = ( isset( $filetype ) ) ? $filetype:'html';
+		$depth = ( isset( $depth ) ) ? $depth:1;
 		if ($css == '#') {
 			$selector = ' id="'.substr($attribute, 1).'"';
 		} elseif ($css == '.') {
@@ -14,21 +17,21 @@ class Menu {
 		} else {
 			$selector = '';
 		}
-		$select = glob($folder.'/*.'.$filetype);
+		$select = glob($folder.'/'.$type.'/*.'.$filetype);
 		
 		$menu = '<ul'.$selector.'>'.PHP_EOL;
 		$menu .= ($page != 'home') ? '<li><a href="page/home" title="Home">Home</a></li>'.PHP_EOL:'<li><span>Home</span></li>'.PHP_EOL;
 			foreach ($select as $item) {
 				$root = basename($item, '.'.$filetype);
 				if ($root != "home") {
-					$menu .= ($root != $page) ? '<li><a href="'.$url.$root.'" title="'.self::title_format($root).'">'.self::title_format($root).'</a>':'<li><span>'.self::title_format($root).'</span>';
+					$menu .= ($root != $page) ? '<li><a href="'.$type.'/'.$root.'" title="'.self::title_format($root).'">'.self::title_format($root).'</a>':'<li><span>'.self::title_format($root).'</span>';
 				}
 			
 			if ($depth == '2' && is_dir($folder.'/'.$root)) {
 				$menu .= '<ul>'.PHP_EOL;
-				foreach (glob($folder.'/'.$root.'/*.'.$filetype) as $sub_item) {
+				foreach (glob($folder.'/'.$type.'/'.$root.'/*.'.$filetype) as $sub_item) {
 					$sub_root = basename($sub_item, '.'.$filetype);
-					$menu .= ($root.'/'.$sub_root != $page) ? '<li><a href="'.$url.$root.'/'.$sub_root.'" title="'.self::title_format($sub_root).'">'.self::title_format($sub_root).'</a></li>'.PHP_EOL:'<li>'.self::title_format($sub_root).'</li>'.PHP_EOL;
+					$menu .= ($root.'/'.$sub_root != $page) ? '<li><a href="'.$type.'/'.$root.'/'.$sub_root.'" title="'.self::title_format($sub_root).'">'.self::title_format($sub_root).'</a></li>'.PHP_EOL:'<li>'.self::title_format($sub_root).'</li>'.PHP_EOL;
 				}
 				$menu .= '</ul>'.PHP_EOL;
 			}

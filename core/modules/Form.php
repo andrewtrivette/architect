@@ -4,8 +4,9 @@ class Form {
 	public $form_result;
 	public $template_file;
 
-	function __construct( $template, $file = THEMES.'/form.xml' ) {
-		$this->template_file = $file;
+	function __construct( $args ) {
+		extract($args);
+		$this->template_file = (isset($file)) ? $file:'themes/'.THEME.'/form.xml';
 		self::form_render($template);
 	}
 	

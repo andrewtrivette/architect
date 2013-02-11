@@ -6,7 +6,7 @@
 	<submit name="submit">Login</submit>
 </form>
 <form action="page/contact" method="post" name="mail" process="mail">
-	<message><![CDATA[<h1>Contact Form</h1> 
+	<message><![CDATA[
 <h3>I would love to hear from you! Send me an email below</h3>]]></message>
 	<hidden name="Subject">Website Response - </hidden>
 	<text name="Name" size="40" />

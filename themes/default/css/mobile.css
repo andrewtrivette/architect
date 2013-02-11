@@ -1,0 +1,19 @@
+/* CSS Document */
+@media
+only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5),
+only screen and (max-width: 480px) {
+body {
+max-width:100%;	
+min-width:100%;
+}
+.main_wrapper,
+.banner,
+.copy,
+.menu {
+	float:none;
+	width:100%;
+}
+}

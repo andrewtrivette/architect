@@ -23,6 +23,8 @@ function __autoload($class_name) {
 		require_once 'modules/'.$class_name . '.php';
 	}
 }
-
-include 'themes/'.THEME.'/'.$type.'.php';
+$page = array('type' => 'page', 'id' => 'home');
+$data = ( isset( $_REQUEST['id'] ) ) ? $_REQUEST:$page;
+$content = new Content( $data );
+include 'themes/'.THEME.'/'.$content->type.'.php';
 ?>

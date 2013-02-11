@@ -1,22 +1,28 @@
 <?
 class Mail extends Form {
 	
-	function __construct($template, $email) {
+	function __construct($args) {
+		extract( $args );
 		if (isset($_REQUEST['submit'])) {
-			self::form_process($template, $email); // Process the submitted form information
+			self::form_process( $args ); // Process the submitted form information
 		} else {
-			parent::__construct($template);// Echo the form html code
+			parent::__construct( array( 'template' => $template ) );// Echo the form html code
 		}
 	}
 
-	function form_process($template, $email) {
-		$s = simplexml_load_file(dirname(__FILE__).'/form.xml');
+	function form_process($args) {
+		extract( $args );
+		$template = ( isset( $template ) ) ? $template:'';
+		$email = ( isset( $email ) ) ? $email:EMAIL;
+		$this->template_file = (isset($file)) ? $file:'themes/'.THEME.'/form.xml';
+		$s = simplexml_load_file( $this->template_file );
 		$info = $s->xpath("form[@name = '".$template."']");
 		// Get the array with the form information
 		$array = $_REQUEST[(string) $info[0]->attributes()->name];
 		// Removes empty array nodes
 		$contact_form = array_filter($array);
 		// Create the Body of the email 
+		$body = '';
 		foreach ($contact_form as $key => $value) {$body .= ucwords(str_replace('_', ' ', $key)) . ': '.$value.PHP_EOL;}
 		// Find the Subject
 		$subject = $contact_form['Subject'].' from '. $contact_form['Name'];

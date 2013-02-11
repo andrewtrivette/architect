@@ -11,6 +11,7 @@ arch_add_info('year', '2007');
 arch_register('arch_head_after', 'theme_css');
 function theme_css() {
 	echo arch_css_link( THEME.'/css/style.css' );
+	echo arch_css_link( THEME.'/css/960_12_col.css' );
 	echo arch_css_link( THEME.'/css/mobile.css' );
 }
 arch_register('arch_head_after', 'theme_js');

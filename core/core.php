@@ -23,15 +23,17 @@ function arch_register($hook, $callback, $args = array()) {
 }
 
 function arch_template($part, $path = 'templates/') {
+	global $content;
 	arch_execute('arch_'.$part.'_before');
 	include 'themes/'.THEME.'/'.$path.$part.'.php';
 	arch_execute('arch_'.$part.'_after');	
 }
 
-function arch_module($module, $args ) {
+function arch_module($module, $args = array() ) {
+	global $content;
 	$hook = strtolower($module);
 	arch_execute('arch_'.$hook.'_before');
-	echo new $module( $args );
+	echo new $module( $args, $content );
 	arch_execute('arch_'.$hook.'_after');
 }
 

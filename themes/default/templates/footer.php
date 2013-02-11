@@ -1,12 +1,6 @@
-<?php 
-$args = array( 
-	'folder' => 'content', 
-	'attribute' => '.menu', 
-	'filetype' => 'html', 
-	'url' => 'page/', 
-	'depth' => '1'
-);
-echo arch_module('Menu', $args ); ?>
+<nav class="menu">
+<?php arch_module('Menu', array( 'type' => $content->type, 'id' => $content->id ) ); ?>
+</nav>
 <br />&copy;<?php echo (date("Y") > YEAR) ? YEAR.'-'.date("Y"):YEAR; ?> 
 <?php 
 echo COMPANY. ' | Design by: ';

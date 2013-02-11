@@ -2,7 +2,7 @@ DirectoryIndex index.html index.php /index.php
 ErrorDocument 404 /index.php
 Options +FollowSymlinks
 RewriteEngine on
-RewriteRule ^page/([a-zA-Z0-9/_&=;-]+)$ index.php?p=$1
+RewriteRule ^([a-zA-Z]+)/([a-zA-Z0-9/_&=;-]+)$ index.php?type=$1&id=$2
 AddHandler php5-script .php
 # AddHandler x-httpd-php5 .php
 # AddHandler application/x-httpd-php5 .php
