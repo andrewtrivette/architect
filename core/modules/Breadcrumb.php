@@ -17,13 +17,13 @@ class Breadcrumb {
 		
 		$links = explode('/', $page);
 		$current_page = array_pop($links);
-		$breadcrumb = '<div '.$css.'><a href="'.$type.'/home">Home</a> '.$separator.' ';
+		$breadcrumb = '<div '.$selector.'><a href="'.$type.'/home">Home</a> '.$separator.' ';
 		$url = '';
 		foreach ($links as $item) {
 			$url .= '/'.$item;
 			$breadcrumb .= '<a href="'.$type.'/'.$url.'">'.self::title_format($item).'</a> '.$separator.' ';
 		}
-		$breadcrumb .= self::title_format($current_page).'</div>'.PHP_EOL;
+		$breadcrumb .= '<span class="current_page">'.self::title_format($current_page).'</span></div>'.PHP_EOL;
 		if ($page != 'home') {
 			return $this->result = $breadcrumb;
 		} else {

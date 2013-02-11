@@ -27,27 +27,27 @@ class Form {
 				
 				case 'text':
 				case 'password':
-					$form .= '<label for="'.$field->attributes()->name.'">'.ucwords(str_replace('_', ' ', $field->attributes()->name)).':</label><input type="'.$element.'" name="'.$info[0]->attributes()->name.'['.$field->attributes()->name.']" id="'.$field->attributes()->name.'" value="'.$field.'" size="'.$field->attributes()->size.'" /><br />'.PHP_EOL;
+					$form .= '<p><label for="'.$field->attributes()->name.'">'.ucwords(str_replace('_', ' ', $field->attributes()->name)).':</label><input type="'.$element.'" name="'.$info[0]->attributes()->name.'['.$field->attributes()->name.']" id="'.$field->attributes()->name.'" value="'.$field.'" size="'.$field->attributes()->size.'" /></p>'.PHP_EOL;
 					break;
 						
 				case 'submit':
-					$form .= '<input type="'.$element.'" name="'.$field->attributes()->name.'" id="'.$field->attributes()->name.'" value="'.$field.'" /><br />'.PHP_EOL;
+					$form .= '<p><input type="'.$element.'" name="'.$field->attributes()->name.'" id="'.$field->attributes()->name.'" value="'.$field.'" /></p>'.PHP_EOL;
 					break;
 						
 				case 'hidden':
-					$form .= '<input type="'.$element.'" name="'.$info[0]->attributes()->name.'['.$field->attributes()->name.']" id="'.$field->attributes()->name.'" value="'.$field.'" />'.PHP_EOL;
+					$form .= '<p><input type="'.$element.'" name="'.$info[0]->attributes()->name.'['.$field->attributes()->name.']" id="'.$field->attributes()->name.'" value="'.$field.'" /></p>'.PHP_EOL;
 					break;
 						
 				case 'textarea':
-					$form .= '<label for="'.$field->attributes()->name.'">'.ucwords(str_replace('_', ' ', $field->attributes()->name)).':</label>'.PHP_EOL.'<textarea id="'.$field->attributes()->name.'" name="'.$info[0]->attributes()->name.'['.$field->attributes()->name.']" cols="'.$field->attributes()->cols.'" rows="'.$field->attributes()->rows.'"></textarea><br />'.PHP_EOL;
+					$form .= '<p><label for="'.$field->attributes()->name.'">'.ucwords(str_replace('_', ' ', $field->attributes()->name)).':</label><br />'.PHP_EOL.'<textarea id="'.$field->attributes()->name.'" name="'.$info[0]->attributes()->name.'['.$field->attributes()->name.']" cols="'.$field->attributes()->cols.'" rows="'.$field->attributes()->rows.'"></textarea></p>'.PHP_EOL;
 					break;
 						
 				case 'radio':
-					$form .= '<fieldset><legend>'.$field->attributes()->name.'</legend>'.PHP_EOL;
+					$form .= '<p><fieldset><legend>'.$field->attributes()->name.'</legend>'.PHP_EOL;
 					foreach($field->children() as $radio) {
-						$form .= '<label><input type="radio" name="'.$info[0]->attributes()->name.'['.$field->attributes()->name.']" id="'.$radio->attributes()->id.'" /> '.$radio.'</label> '.PHP_EOL;
+						$form .= '<input type="radio" name="'.$info[0]->attributes()->name.'['.$field->attributes()->name.']" id="'.$radio->attributes()->id.'" /><label for="'.$radio->attributes()->id.'">'.$radio.'</label><br /> '.PHP_EOL;
 					}
-					$form .= '</fieldset>'.PHP_EOL;
+					$form .= '</fieldset></p>'.PHP_EOL;
 					break;
 						
 				case 'select':
