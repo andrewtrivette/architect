@@ -22,8 +22,7 @@ function arch_register($hook, $callback, $args = array()) {
 	$hooks[$hook][$callback] = $args;
 }
 
-function arch_include($filename) {
-	
+function arch_include( $filename ) {
 	if ( is_file( $filename ) ) {
 		ob_start();
 		global $content;

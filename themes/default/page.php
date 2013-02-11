@@ -16,7 +16,7 @@
 				<?php arch_module('Menu', array( 'type' => $content->type, 'id' => $content->id ) ); ?>
             </nav>
         </header><!-- .banner -->
-        <article class="copy">
+        <article class="copy container_12 clearfix">
             <?php arch_template('content'); ?>
         </article><!-- .copy -->
         <footer class="footer">

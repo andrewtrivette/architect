@@ -20,11 +20,11 @@ class Menu {
 		$select = glob($folder.'/'.$type.'/*.'.$filetype);
 		
 		$menu = '<ul'.$selector.'>'.PHP_EOL;
-		$menu .= ($page != 'home') ? '<li><a href="page/home" title="Home">Home</a></li>'.PHP_EOL:'<li><span>Home</span></li>'.PHP_EOL;
+		$menu .= '<li><a href="page/home" '.(($page != 'home') ? 'class="current_page"':'').' title="Home">Home</a></li>'.PHP_EOL;
 			foreach ($select as $item) {
 				$root = basename($item, '.'.$filetype);
 				if ($root != "home") {
-					$menu .= ($root != $page) ? '<li><a href="'.$type.'/'.$root.'" title="'.self::title_format($root).'">'.self::title_format($root).'</a>':'<li><span>'.self::title_format($root).'</span>';
+					$menu .= '<li><a href="'.$type.'/'.$root.'" '.(($root != $page) ? '':'class="current_page"').' title="'.self::title_format($root).'">'.self::title_format($root).'</a>';
 				}
 			
 			if ($depth == '2' && is_dir($folder.'/'.$root)) {
