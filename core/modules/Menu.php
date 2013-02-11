@@ -5,7 +5,6 @@ class Menu {
 	function __construct($args) {
 		extract( $args );
 		$page = (isset($id)) ? $id:'home';
-		// Menu('content', '.menu', 'html', 'page/', '1');
 		$css = ( isset( $attribute ) ) ? substr($attribute, 0, 1):'';
 		$folder = ( isset( $folder ) ) ? $folder:'content';
 		$filetype = ( isset( $filetype ) ) ? $filetype:'html';
@@ -27,11 +26,12 @@ class Menu {
 					$menu .= '<li><a href="'.$type.'/'.$root.'" '.(($root != $page) ? '':'class="current_page"').' title="'.self::title_format($root).'">'.self::title_format($root).'</a>';
 				}
 			
-			if ($depth == '2' && is_dir($folder.'/'.$root)) {
-				$menu .= '<ul>'.PHP_EOL;
-				foreach (glob($folder.'/'.$type.'/'.$root.'/*.'.$filetype) as $sub_item) {
+			if ($depth == '2' && is_dir($folder.'/'.$type.'/'.$root)) {
+				$menu .= '<ul class="sub_menu">'.PHP_EOL;
+				$sub_select = glob($folder.'/'.$type.'/'.$root.'/*.'.$filetype);
+				foreach ($sub_select as $sub_item) {
 					$sub_root = basename($sub_item, '.'.$filetype);
-					$menu .= ($root.'/'.$sub_root != $page) ? '<li><a href="'.$type.'/'.$root.'/'.$sub_root.'" title="'.self::title_format($sub_root).'">'.self::title_format($sub_root).'</a></li>'.PHP_EOL:'<li>'.self::title_format($sub_root).'</li>'.PHP_EOL;
+					$menu .= '<li><a href="'.$type.'/'.$root.'/'.$sub_root.'" '.(($root.'/'.$sub_root != $page) ? '':' class="current_page"').' title="'.self::title_format($sub_root).'">'.self::title_format($sub_root).'</a></li>'.PHP_EOL;
 				}
 				$menu .= '</ul>'.PHP_EOL;
 			}

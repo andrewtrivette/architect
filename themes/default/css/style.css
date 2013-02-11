@@ -122,11 +122,16 @@ td {
 	margin: 0px;
 	background-color: #333;
 }
+.menu ul {
+	margin: 0px;
+}
 .menu li {
 	list-style-type: none;
 	font-size: 1.2em;
 	line-height: 1;
 	float: left;
+	white-space: nowrap;
+	position:relative;
 }
 .menu a {
 	display: block;
@@ -136,8 +141,16 @@ td {
 .menu a.current_page, .menu a:hover {
 	background-color: #444;
 }
-.menu ul {
-	margin: 0px;
+.sub_menu {
+	display:none;
+	position:absolute;
+	top:100%;
+	left:0;
+	background-color:#333;
+	z-index:1005;
+}
+.menu li:hover .sub_menu {
+	display:block;
 }
 .copy {
 	text-align: left;
@@ -159,7 +172,7 @@ td {
 	position:relative;
 	background-color:#999;
 	color:#fff;
-	margin-right:3px;
+	margin:0 3px 5px 0;
 	padding:5px 10px 5px 22px;
 	font-size:12px;
 	line-height:1;

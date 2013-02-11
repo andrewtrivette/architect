@@ -13,7 +13,7 @@
         <header class="banner">
             <?php arch_template('header'); ?>
             <nav class="menu clearfix" role="navigation">
-				<?php arch_module('Menu', array( 'type' => $content->type, 'id' => $content->id ) ); ?>
+				<?php arch_module('Menu', array( 'type' => $content->type, 'id' => $content->id, 'depth' => 2 ) ); ?>
             </nav>
         </header><!-- .banner -->
         <article class="copy container_12 clearfix">

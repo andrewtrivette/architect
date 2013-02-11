@@ -4,7 +4,7 @@ class Breadcrumb {
 	
 	function __construct($args = array(), $content) {
 		extract( $args );
-		$page = $content->id;
+		$page = $content->path;
 		$type = $content->type;
 		$separator = ( isset( $separator ) ) ? $separator:'>';
 		$attribute = ( isset( $attribute ) ) ? $attribute:'.breadcrumb';

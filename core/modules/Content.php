@@ -6,14 +6,16 @@ class Content {
 	public $slug;
 	public $filename;
 	public $name;
+	public $path;
 	public $content;
 	public $metadata;
 	
 	public function __construct( $page ) {
-		$this->id = $page['id'];
+		$this->id = basename($page['id']);
+		$this->path = $page['id'];
 		$this->type = $page['type'];
-		$this->slug = $page['type'].'/'.$page['id'];
-		$this->filename = 'content/'.$this->type.'/'.$this->id.'.html';
+		$this->slug = $this->type.'/'.$this->path;
+		$this->filename = 'content/'.$this->slug.'.html';
 		$this->metadata = self::getMetadata();
 	}
 	
