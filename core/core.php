@@ -22,10 +22,35 @@ function arch_register($hook, $callback, $args = array()) {
 	$hooks[$hook][$callback] = $args;
 }
 
+function arch_include($filename) {
+	
+	if ( is_file( $filename ) ) {
+		ob_start();
+		global $content;
+		include $filename;
+		return ob_get_clean();
+	}
+	return $filename;
+}
+
+function arch_filter($hook, $content) {
+	global $hooks;
+	$active = (isset($hooks[$hook])) ? $hooks[$hook]:'';
+	$html = '';
+	if ( !empty($active) ) {
+		foreach ($active as $callback => $args) {
+			$html .= call_user_func($callback, $content);	
+		}
+	} else {
+		$html = $content;
+	}
+	return $html;
+}
 function arch_template($part, $path = 'templates/') {
 	global $content;
 	arch_execute('arch_'.$part.'_before');
-	include 'themes/'.THEME.'/'.$path.$part.'.php';
+	$include = arch_include( 'themes/'.THEME.'/'.$path.$part.'.php' );
+	echo arch_filter('arch_'.$part.'_filter', $include);
 	arch_execute('arch_'.$part.'_after');	
 }
 
