@@ -58,7 +58,7 @@ function arch_module($module, $args = array() ) {
 	global $content;
 	$hook = strtolower($module);
 	arch_execute('arch_'.$hook.'_before');
-	echo new $module( $args, $content );
+	echo arch_filter('arch_'.$hook.'_filter', new $module( $args, $content ) );
 	arch_execute('arch_'.$hook.'_after');
 }
 
