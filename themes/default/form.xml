@@ -1,34 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <forms>
-<form action="page/dashboard" method="post" name="login" process="authorize">
-	<text name="username" size="20" />
-	<password name="password" size="20" />
-	<submit name="submit">Login</submit>
-</form>
-<form action="page/contact" method="post" name="mail" process="mail">
-	<message><![CDATA[
-<h3>I would love to hear from you! Send me an email below</h3>]]></message>
-	<hidden name="Subject">Website Response - </hidden>
-	<text name="Name" size="40" />
-	<text name="Email" size="40" />
-	<radio name="Purpose">
-		<item id="buy">Buy</item>
-		<item id="sell">Sell</item>
-		<item id="other">Other</item>
-	</radio>
-	<textarea name="Comments" cols="40" rows="10"></textarea>
-	<submit name="submit">Send</submit>
-</form>
-<form action="page/new" method="post" name="account" process="create">
-	<message><![CDATA[<h1>Create an Account</h1><p>Fill out the following form to create an account and connect to your server</p>]]></message>
-	<text name="user_id" size="40" />
-	<password name="pass_id" size="40" />
-	<text name="user_ftp" size="40" />
-	<password name="pass_ftp" size="40" />
-	<text name="base_url" size="40" />
-	<text name="root_dir" size="40" />
-	<text name="image_root" size="40" />
-	<text name="image_url" size="40" />
-	<submit name="submit">Create Account</submit>
-</form>
+	<form action="page/contact" method="post" name="mail" process="mail">
+		<message><![CDATA[
+	<h3>I would love to hear from you! Send me an email below</h3>]]></message>
+		<hidden name="Subject">Website Response - </hidden>
+		<text name="Name" size="40" />
+		<text name="Email" size="40" />
+		<radio name="Purpose">
+			<item id="buy">Buy</item>
+			<item id="sell">Sell</item>
+			<item id="other">Other</item>
+		</radio>
+		<textarea name="Comments" cols="40" rows="10"></textarea>
+		<submit name="submit">Send</submit>
+	</form>
 </forms>

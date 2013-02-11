@@ -20,7 +20,7 @@ class Menu {
 		$select = glob($folder.'/'.$type.'/*.'.$filetype);
 		
 		$menu = '<ul'.$selector.'>'.PHP_EOL;
-		$menu .= '<li><a href="page/home" '.(($page != 'home') ? 'class="current_page"':'').' title="Home">Home</a></li>'.PHP_EOL;
+		$menu .= '<li><a href="page/home" '.(($page == 'home') ? 'class="current_page"':'').' title="Home">Home</a></li>'.PHP_EOL;
 			foreach ($select as $item) {
 				$root = basename($item, '.'.$filetype);
 				if ($root != "home") {

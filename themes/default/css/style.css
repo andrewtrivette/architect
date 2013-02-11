@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,800,700,600);
 /*Copyright 2013, Created by Andrew Trivette. All rights reserved.*/
 * {
 	margin:0px;
@@ -10,23 +11,26 @@
 	}
 html, body {
 	font-size:14px;
-	font-family:Arial, Tahoma, Helvetica, Sans-serif;
+	font-family:"Open Sans", sans-serif;
 	text-align:center;
-	line-height:1.4;
+	line-height:1.7;
 	height:100%;
 	}
 a { text-decoration:none;}
 img { border:0;}
+h1, h2, h3, h4, h5, h6 {
+font-weight:300;
+	padding:5px 0px;
+}
 h1 {
-	font-size:20px;
-	margin:5px 0px;
+	font-size:2.2em;
+	
 	}
 h2 {
-	font-size:18px;
-	margin:5px 0px;
+	font-size:1.8em;
 	}
 h3 {
-	margin:5px 0px;
+	font-size:1.4em;
 	}
 label {
 	font-weight:bold;
@@ -86,15 +90,14 @@ background-color:#f1f1f1;
 	max-width:960px;
 	margin:0px auto;
 	text-align:center;
-	background-color:#333333;
 	}
 .banner {
-	background-color:#666666;
 	padding:0;
 	}
 .banner a.home {
 	display:block;
-	color:#fff;
+	color:#333;
+	padding:15px 0;
 	}
 .banner strong {
 	display:none;
@@ -102,23 +105,24 @@ background-color:#f1f1f1;
 .menu {
 	text-align:left;
 	margin:0px;
-	background-color:#CCCCCC;
+	background-color:#333;
 	}
 .menu li {
 	list-style-type:none;
-	font-size:17px;
-	line-height:2;
-	margin:0 5px;
+	font-size:1.2em;
+	line-height:1;
 	float:left;
 	}
-.menu a, 
-.menu span {
+.menu a {
 	display:block;
-	font-weight:bold;
+	padding:15px 15px;
 	color:#fff;
 	}
+.menu a.current_page, .menu a:hover {
+	background-color:#444;	
+}
 .menu ul {
-	margin:0px 5px;
+	margin:0px;
 	}
 
 .copy {

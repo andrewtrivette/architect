@@ -7,6 +7,12 @@ function arch_add_info($name, $value) {
 	$info[$name] = $value;
 }
 
+function arch_set_constants($settings) {
+	foreach ($settings as $name => $value) {
+		define(strtoupper($name), $value, true);
+	}
+}
+
 function arch_execute($hook) {
 	global $hooks;
 	$active = (isset($hooks[$hook])) ? $hooks[$hook]:'';

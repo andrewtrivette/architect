@@ -12,9 +12,7 @@ $page_title = ucwords( str_replace( '_', ' ', basename( $page ) ) );
 arch_add_info('page_title', $page_title );
 include 'themes/'.$settings['theme'].'/features.php';
 
-foreach ($settings as $name => $value) {
-	define(strtoupper($name), $value, true);
-}
+arch_set_constants($settings);
 
 function __autoload($class_name) {
 	if ( file_exists('plugins/'.$class_name . '.php') ) {

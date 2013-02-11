@@ -1,6 +1,5 @@
-<nav class="menu">
 <?php arch_module('Menu', array( 'type' => $content->type, 'id' => $content->id ) ); ?>
-</nav>
+
 <br />&copy;<?php echo (date("Y") > YEAR) ? YEAR.'-'.date("Y"):YEAR; ?> 
 <?php 
 echo COMPANY. ' | Design by: ';
