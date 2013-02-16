@@ -249,3 +249,6 @@ border-left-color:transparent;
 	display: inline-block;
 	text-align: center;
 }
+.content_editor .editor {
+	width:100%;
+}

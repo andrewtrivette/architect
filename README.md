@@ -10,7 +10,10 @@ Every developer builds their sites a little differently. Using a flat-file frame
 
 Focus on the things that make each site unique instead of configuring a site from scratch every time!
 
-Includes the 12 column 960grid system.
+Included as plugins:
+- the 12 column 960grid system
+- Michel Fortin's Markdown php converter
+
 
 Each theme can be broken down into multiple template parts. The default theme has several including 'head', 'header', 'content', 'sidebar', 'footer', 'foot', etc. Use the **arch_template()** function to load them from the theme's templates folder. When you call **arch_template()**, several things happen. Let's use the **header** template part as an example. When I call **arch_template('header')**, a hook called **arch_header_before** is executed, then the **header.php** file in the templates folder, and filters the content based on a filter called **arch_header_filter**, then returns the result, and executes another hook called **arch_header_after**. The hooks and filters are generated dynamically for each template part.
 

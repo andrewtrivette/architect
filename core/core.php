@@ -1,10 +1,14 @@
 <?php
 $hooks = array();
 
-function arch_add_info($name, $value) {
+function arch_add_info($args) {
 	global $settings;
+	$json = json_decode($args, true);
+	//echo $args;
 	$info = &$settings;
-	$info[$name] = $value;
+	foreach($json as $key => $value) {
+		$info[$key] = $value;
+	}
 }
 
 function arch_set_constants($settings) {
@@ -72,10 +76,18 @@ function arch_page_class() {
 }
 
 function arch_css_link($link) {
-	return '<link rel="stylesheet" href="'.BASE_URL.'themes/'.$link.'">'.PHP_EOL;
+	if ( stristr( $link, '//' ) ) {
+		return '<link rel="stylesheet" href="'.$link.'">'.PHP_EOL;
+	} else {
+		return '<link rel="stylesheet" href="'.BASE_URL.$link.'">'.PHP_EOL;
+	}
 }
 
 function arch_js_link($link) {
-	return '<script type="text/javascript" src="'.BASE_URL.'themes/'.$link.'"></script>'.PHP_EOL;
+	if ( stristr( $link, '//' ) ) {
+		return '<script type="text/javascript" src="'.$link.'"></script>'.PHP_EOL;
+	} else {
+		return '<script type="text/javascript" src="'.BASE_URL.'themes/'.$link.'"></script>'.PHP_EOL;
+	}
 }
 ?>

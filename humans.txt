@@ -1,0 +1,12 @@
+/* TEAM */
+
+	Architect Author:Andrew Trivette
+	Contact: andrew.trivette [at] gmail.com
+	Twitter: @adt4christ
+	From: Cookeville, TN, USA
+
+	Site Author: Your Name Here!
+	Contact: you [at] yourname.com
+	Twitter: @you
+	From: Your Town, State
+	

@@ -5,11 +5,14 @@ if (isset($_REQUEST['logout'])) {
 }
 //error_reporting(0);
 
-include 'configure.inc';
+//include 'configure.inc';
 $type = (isset($_REQUEST['type'])) ? $_REQUEST['type']:'pages';
 $page = (isset($_REQUEST['page'])) ? $_REQUEST['page']:'home';
 $page_title = ucwords( str_replace( '_', ' ', basename( $page ) ) );
-arch_add_info('page_title', $page_title );
+$constants = file_get_contents('configure.inc');
+arch_add_info($constants);
+//echo $constants;
+arch_add_info(' { "page_title" : "'.$page_title.'" }' );
 include 'themes/'.$settings['theme'].'/features.php';
 
 arch_set_constants($settings);
@@ -23,6 +26,9 @@ function __autoload($class_name) {
 }
 $page = array('type' => 'page', 'id' => 'home');
 $data = ( isset( $_REQUEST['id'] ) ) ? $_REQUEST:$page;
-$content = new Content( $data );
+$authenticate = new Authenticate();
+$authenticate->authenticate = false;
+$content = new Content( $data, $authenticate );
+
 include 'themes/'.THEME.'/'.$content->type.'.php';
 ?>

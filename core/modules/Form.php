@@ -1,4 +1,4 @@
-<?
+<?php
 class Form {
 
 	public $form_result;

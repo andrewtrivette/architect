@@ -1,4 +1,4 @@
-<?
+<?php
 class Breadcrumb {
 	public $result;
 	

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<forms>
+  <form action="page/page_manager" method="post" name="login" process="authorize">
+    <main>
+      <text name="username" size="40" />
+      <password name="password" size="40" />
+      <submit name="submit">Login</submit>
+    </main>
+  </form>
+</forms>

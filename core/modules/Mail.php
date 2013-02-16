@@ -1,4 +1,4 @@
-<?
+<?php
 class Mail extends Form {
 	
 	function __construct($args) {
