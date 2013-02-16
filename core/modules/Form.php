@@ -6,7 +6,7 @@ class Form {
 
 	function __construct( $args ) {
 		extract($args);
-		$this->template_file = (isset($file)) ? $file:'themes/'.THEME.'/form.xml';
+		$this->template_file = (isset($file)) ? $file:THEME.'/form.xml';
 		self::form_render($template);
 	}
 	

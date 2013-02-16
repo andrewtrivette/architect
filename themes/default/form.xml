@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <forms>
 	<form action="page/contact" method="post" name="mail" process="mail">
-		<message><![CDATA[
-	<h3>I would love to hear from you! Send me an email below</h3>]]></message>
+		<message><![CDATA[<h3>I would love to hear from you! Send me an email below</h3>]]></message>
 		<hidden name="Subject">Website Response - </hidden>
 		<text name="Name" size="40" />
 		<text name="Email" size="40" />

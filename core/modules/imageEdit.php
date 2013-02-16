@@ -43,7 +43,7 @@ class imageEdit {
 
 	function image_upload($img, $temp_img) {
 	global $user;
-	//$s3 = new S3('1ZE90A4KD0R42ES7YG02', 'ege4ayl/xlAkjmGd2axyT3faB3Ejtp72zt3cgJwY');
+	//$s3 = new S3('id', 'secret key');
 
 	if (getimagesize($temp_img)) {
 		self::scale(600, 600, $temp_img, basename($img), '../images/'.$user[0]->site[0]['url'].'/large/');

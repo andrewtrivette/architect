@@ -1,7 +1,7 @@
 <?php
 class Authenticate {
 	
-	public $authenticate;
+	public $isLoggedIn;
 	public $result;
 	
 	function __construct() {
@@ -12,29 +12,26 @@ class Authenticate {
 		$user = USER;
 		$pass = PASS;
 		
-		$this->authenticate = false;
+		$this->isLoggedIn = false;
 		$this->result = '';
 
-		if ( $username != '' AND $password != '' ) {
-
-			if ( $password == $pass AND $username == $user ) {
+		if ( $password == $pass AND $username == $user ) {
+		
+			$this->result .= '<div class="logout"><a href="'.BASE_URL.'?logout=true" title="Logout" class="button">Logout</a></div>';
+			$this->isLoggedIn = true;
+		
+		} elseif ( !empty( $_POST['login']['username'] ) ) {
 			
-				$this->result .= '<div class="logout"><a href="'.BASE_URL.'?logout=true" title="Logout" class="button">Logout</a></div>';
-				$this->authenticate = true;
-			
-			} elseif ( !empty( $_POST['login']['username'] ) ) {
-				
-				if ( isset( $_SESSION['tries'] ) ) { 
-					$_SESSION['tries']++;
-				} else {
-					$_SESSION['tries'] = 1;
-				}
-				$this->result .= '<h2>Login Incorrect. Login Attempt '.$_SESSION['tries'].' of 3</h2>';
+			if ( isset( $_SESSION['tries'] ) ) { 
+				$_SESSION['tries']++;
+			} else {
+				$_SESSION['tries'] = 1;
 			}
-			
+			$this->result .= '<h2>Login Incorrect. Login Attempt '.$_SESSION['tries'].' of 3</h2>';
 		}
 			
-		if ( $this->authenticate != true ) {
+			
+		if ( $this->isLoggedIn != true ) {
 			
 			$this->result .= new Form( array( 'template' => 'login', 'file' => 'core/form.xml' ) );
 			

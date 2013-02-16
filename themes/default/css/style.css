@@ -15,12 +15,18 @@ body {
 	text-align: center;
 	line-height: 1.7;
 	overflow-y: scroll;
+	color:#333;
 }
 a {
 	text-decoration: none;
 }
+a:link, a:visited {
+	color: #660000;
+}
 img {
 	border: 0;
+	max-width:100%;
+	height:auto;
 }
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 300;
@@ -43,7 +49,7 @@ label {
 	margin:0 10px 0 5px;
 }
 input, select, textarea {
-padding:10px 15px;	
+	padding:10px 15px;	
 }
 ul, ol, dd, blockquote {
 	margin: 5px 20px;
@@ -60,6 +66,8 @@ p {
 th {
 	text-align: center;
 	padding: 5px;
+	background-color: #333333;
+	color: #FFFFFF;
 }
 header, nav, article, section, footer {
 	display: block;
@@ -73,59 +81,25 @@ header, nav, article, section, footer {
 	zoom: 1;
 	display: block;
 }
-/* ------- HTML Elements ---------- */
-html, body {
-	color: #333333;
-}
-a:link, a:visited {
-	color: #660000;
-}
-a:hover, a:active {
-	color: #990000;
-}
-th {
-	background-color: #333333;
-	color: #FFFFFF;
-}
-td {
-	background-color: #FFFFFF;
-}
-/* -------- Content Styles -------- */
-.product_thumb {
-	border-color: #999999;
-}
-.product_thumb a span {
-	color: #990000;
-}
-.container {
-	background-color: #f1f1f1;
-}
-/* ------- Structural Id's --------- */
-.main_wrapper {
+
+.l-main_wrapper {
+	width:100%;
 	max-width: 960px;
 	margin: 0px auto;
 	text-align: center;
 }
-.banner {
-	padding: 0;
-}
-.banner a.home {
+.l-banner a.home {
 	display: block;
 	color: #333;
 	padding: 15px 0;
 }
-.banner strong {
-	display: none;
-}
-.menu {
-	text-align: left;
-	margin: 0px;
+.l-menu {
 	background-color: #333;
 }
-.menu ul {
+.l-menu ul {
 	margin: 0px;
 }
-.menu li {
+.l-menu li {
 	list-style-type: none;
 	font-size: 1.2em;
 	line-height: 1;
@@ -133,12 +107,12 @@ td {
 	white-space: nowrap;
 	position:relative;
 }
-.menu a {
+.l-menu a {
 	display: block;
 	padding: 15px 15px;
 	color: #fff;
 }
-.menu a.current_page, .menu a:hover {
+.l-menu a.current_page, .l-menu a:hover {
 	background-color: #444;
 }
 .sub_menu {
@@ -149,19 +123,18 @@ td {
 	background-color:#333;
 	z-index:1005;
 }
-.menu li:hover .sub_menu {
+.l-menu li:hover .sub_menu {
 	display:block;
 }
-.copy {
+.l-copy {
 	text-align: left;
 	padding: 20px 0;
 	background-color: #FFFFFF;
 }
-.footer {
-	clear: both;
+  .l-footer {
 	font-size: 12px;
 }
-.footer li {
+.l-footer li {
 	display: inline;
 	padding: 0px 5px;
 	margin: 0px 5px;

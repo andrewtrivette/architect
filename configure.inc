@@ -1,5 +1,5 @@
 {
-"theme" : "default",
+"theme" : "themes/default",
 "base_url" : "http://localhost/architect/",
 "title" : "ArchitectCMS",
 "company" : "ArchitectCMS",

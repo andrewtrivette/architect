@@ -17,7 +17,8 @@ class Content {
 		$this->slug = $this->type.'/'.$this->path;
 		$this->filename = 'content/'.$this->slug.'.html';
 		$this->metadata = self::getMetadata();
-		if ( $authenticate->authenticate == true ) {
+		self::getName();
+		if ( $authenticate->isLoggedIn == true ) {
 			$this->content = self::editor();
 		} else {
 			$this->content = self::content();
@@ -28,7 +29,7 @@ class Content {
 		
 	}
 	
-	public function name() {
+	public function getName() {
 		$this->name = ucwords( str_replace( '_', ' ', $this->id ) );
 		return $this->name;
 	}

@@ -9,17 +9,17 @@
 <?php arch_template('head'); ?>
 </head>
 <body class="<?php echo arch_page_class(); ?>">
-    <div class="main_wrapper">
-        <header class="banner">
+    <div class="l-main_wrapper">
+        <header class="l-banner">
             <?php arch_template('header'); ?>
-            <nav class="menu clearfix" role="navigation">
+            <nav class="l-menu clearfix" role="navigation">
 				<?php arch_module('Menu', array( 'type' => $content->type, 'id' => $content->id, 'depth' => 2 ) ); ?>
             </nav>
         </header><!-- .banner -->
-        <article class="copy container_12 clearfix">
+        <article class="l-copy container_12 clearfix">
             <?php arch_template('content'); ?>
         </article><!-- .copy -->
-        <footer class="footer">
+        <footer class="l-footer clearfix">
             <?php arch_template('footer'); ?>
         </footer>
     </div><!-- .main_wrapper -->

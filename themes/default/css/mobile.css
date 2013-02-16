@@ -9,10 +9,10 @@ body {
 max-width:100%;	
 min-width:100%;
 }
-.main_wrapper,
-.banner,
-.copy,
-.menu {
+.l-main_wrapper,
+.l-banner,
+.l-copy,
+.l-menu {
 	float:none;
 	width:100%;
 }

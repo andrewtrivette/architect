@@ -1,23 +1,36 @@
 <?php
 $hooks = array();
 
+function __autoload($class_name) {
+	if ( file_exists('plugins/'.$class_name . '.php') ) {
+    	require_once 'plugins/'.$class_name . '.php';
+	} else {
+		require_once 'modules/'.$class_name . '.php';
+	}
+}
+
+//Constants
 function arch_add_info($args) {
-	global $settings;
+	// Takes a JSON string and converts it to an array, and then defines a constant for each item
 	$json = json_decode($args, true);
 	//echo $args;
 	$info = &$settings;
 	foreach($json as $key => $value) {
-		$info[$key] = $value;
+		define( strtoupper($key),$value, true );
 	}
 }
 
-function arch_set_constants($settings) {
-	foreach ($settings as $name => $value) {
-		define(strtoupper($name), $value, true);
+function arch_show_hooks() {
+	global $hooks;
+	echo '<ul>';
+	foreach ($hooks as $key => $value) {
+		echo '<li><b>Hook: '.$key.'</b> - Function: '.print_r($value, false).'</li>';
 	}
+	echo '</ul>';
 }
-
-function arch_execute($hook) {
+//Hooks and Actions
+function arch_execute($hook) { 
+	//Execute the functions associated with the specified hook
 	global $hooks;
 	$active = (isset($hooks[$hook])) ? $hooks[$hook]:'';
 	if ( !empty($active) ) {
@@ -28,21 +41,13 @@ function arch_execute($hook) {
 }
 
 function arch_register($hook, $callback, $args = array()) {
+	// Assigns the name of a function(callback) to the specified hook. These functions will be called by arch_execute()
 	global $hooks;
 	$hooks[$hook][$callback] = $args;
 }
 
-function arch_include( $filename ) {
-	if ( is_file( $filename ) ) {
-		ob_start();
-		global $content;
-		include $filename;
-		return ob_get_clean();
-	}
-	return $filename;
-}
-
 function arch_filter($hook, $content) {
+	// Sames as arch_execute() except it passes some content to the callback functions 
 	global $hooks;
 	$active = (isset($hooks[$hook])) ? $hooks[$hook]:'';
 	$html = '';
@@ -55,10 +60,24 @@ function arch_filter($hook, $content) {
 	}
 	return $html;
 }
+
+//Templates
+function arch_include( $filename ) {
+	// Includes a file and returns it's contents
+	if ( is_file( $filename ) ) {
+		ob_start();
+		global $content;
+		include $filename;
+		return ob_get_clean();
+	}
+	return $filename;
+}
+
 function arch_template($part, $path = 'templates/') {
+	// Loads a template file, and executes dynamically named hook before and after the content. Before the content is returned it's filtered using another dynamically named hook and arch_filter()
 	global $content;
 	arch_execute('arch_'.$part.'_before');
-	$include = arch_include( 'themes/'.THEME.'/'.$path.$part.'.php' );
+	$include = arch_include( THEME.'/'.$path.$part.'.php' );
 	echo arch_filter('arch_'.$part.'_filter', $include);
 	arch_execute('arch_'.$part.'_after');	
 }
@@ -75,19 +94,12 @@ function arch_page_class() {
 	return 'page';	
 }
 
+// External Files
 function arch_css_link($link) {
-	if ( stristr( $link, '//' ) ) {
-		return '<link rel="stylesheet" href="'.$link.'">'.PHP_EOL;
-	} else {
-		return '<link rel="stylesheet" href="'.BASE_URL.$link.'">'.PHP_EOL;
-	}
+	return '<link rel="stylesheet" href="'.$link.'">'.PHP_EOL;
 }
 
 function arch_js_link($link) {
-	if ( stristr( $link, '//' ) ) {
-		return '<script type="text/javascript" src="'.$link.'"></script>'.PHP_EOL;
-	} else {
-		return '<script type="text/javascript" src="'.BASE_URL.'themes/'.$link.'"></script>'.PHP_EOL;
-	}
+	return '<script type="text/javascript" src="'.$link.'"></script>'.PHP_EOL;
 }
 ?>
