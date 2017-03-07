@@ -6,7 +6,7 @@ Inspired by the structure of Wordpress, Architect includes an easy to understand
 
 TODO:
 - Complete a simple Admin Panel for managing content
-- Handle 404 errors, using a levenshtain algorithm for reduced errors
+- Handle 404 errors, using a levenshtein algorithm for reduced errors
 - Create a search helper module
 - Create a demo blog template
 - Create a system for including metadata with each file(category, author name, tags, etc)
